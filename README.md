@@ -54,15 +54,23 @@
 ### Non-Continuous Functions:
 
 1. step_fun(xvals) : Step Function
-2. expanded_scaffer_fun(xvals) : Expanded Scaffer function, n-dimension 
-3. rastrigin(xvals) : Rastrigin function, n-dimension 
-4. xin_she_yang_n2(xvals) : Xin-She-Yang-N2 function, n-dimension 
-5. rosenbrock(xvals) : Rosenbrock function, n-dimension 
-6. quadric(xvals) : Quadric function, n-dimension 
-7. ellipsoid(xvals) : Ellipsoid function, n-dimension 
+2. rastrigin(xvals) : Rastrigin function, n-dimension 
+3. xin_she_yang_n2(xvals) : Xin-She-Yang-N2 function, n-dimension 
+4. rosenbrock(xvals) : Rosenbrock function, n-dimension 
+5. quadric(xvals) : Quadric function, n-dimension 
+6. ellipsoid(xvals) : Ellipsoid function, n-dimension 
 
 # Documentation
 * For detailed documentation on each function, including parameters, return values, and example usage, refer to the docstrings provided within the library.
 
 # Contributing
 * Contributions to the Non-Convex Optimization Library are welcome! please contact on satyam101905@gmail.com
+ 
+#Why we designed this package? 
+* During my MS thesis(CSU Fresno) in metaheuristics algorithm design and optimization, I searched for several complex non-convex testbeds to test the newly designed algorithm.
+    So, I came across several optimziation problems and some of them are mentioned here in this package as open source contribution
+    Thesis Topic: Titled "Blindfolded Spider-Man Optimization: A Single-Point Metaheuristic Suitable for Continuous and Discrete Spaces", is now publicly available @
+    Link: https://www.proquest.com/docview/2901409934
+    
+* ThankYou to Vasileios Lymperakis (author Buggy Pinball-a novel single point metaheuristic algorithm) for doing an amazing work in Buggy-Pinball which I was able to extended and explored further.
+* Thank you to Dr. Thanos{CSU Fresno, Computer Science} my advisor who guided me.

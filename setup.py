@@ -2,8 +2,8 @@ from setuptools import setup, find_packages
 
 setup(
     name='nonconvexoptimzationfunclib',
-    version='0.1',
-    author='Dr.Thanos and Satyam Mittal',
+    version='0.0.1',
+    author='Dr.Thanos{CSU Fresno} and Satyam Mittal{CSU Fresno}',
     author_email='satyam101905@gmail.com',
     packages=find_packages(),
     description='A library of non-convex optimization functions containing continuous and non-conitnuous functions implemented inn higher dimensions',

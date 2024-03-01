@@ -13,8 +13,8 @@ class NonconvexFunctions:
                     - xvals (list[float]): A list of float values representing the input variables.
 
                     Returns:
-                    - float: The sum of the squares of the input variables.
-
+                    - float: sum of the squares of the input variables.
+                    Source: https://www.sfu.ca/~ssurjano/optimization.html
                     Example usage:
                     >>> ContinuousFunctions.sphere([1, 2, 3])
                     14
@@ -36,7 +36,7 @@ class NonconvexFunctions:
 
                     Returns:
                     - float: The Booth function value at the point (x, y).
-
+                    Source: https://www.sfu.ca/~ssurjano/optimization.html
                     Example usage:
                     >>> ContinuousFunctions.booth(1, 3)
                     1
@@ -56,7 +56,7 @@ class NonconvexFunctions:
 
                     Returns:
                     - float: The calculated value of the Rastrigin function for the given inputs.
-
+                    Source: https://www.sfu.ca/~ssurjano/optimization.html
                     Example usage:
                     >>> ContinuousFunctions.rastrigin([0, 0])
                     0
@@ -77,7 +77,7 @@ class NonconvexFunctions:
 
                  Returns:
                  - float: The Ackley function value for the given inputs.
-
+                Source: https://www.sfu.ca/~ssurjano/optimization.html
                  Example usage:
                  >>> ContinuousFunctions.ackley([0, 0])
                  0
@@ -101,7 +101,7 @@ class NonconvexFunctions:
 
                 Returns:
                 - float: The Schwefel function value for the given inputs.
-
+                Source: https://www.sfu.ca/~ssurjano/optimization.html
                 Example usage:
                 >>> ContinuousFunctions.schwefel([420.9687, 420.9687])
                 0
@@ -122,7 +122,7 @@ class NonconvexFunctions:
 
                    Returns:
                    - float: The Holder Table function value at the point (x, y).
-
+                    Source: https://www.sfu.ca/~ssurjano/optimization.html
                    Example usage:
                    >>> ContinuousFunctions.holdertable([8.05502, 9.66459])
                    -19.2085
@@ -140,8 +140,8 @@ class NonconvexFunctions:
 
                    Returns:
                    - float: The Langermann function value for the given inputs.
-
-                   Example usage:
+                   Source: https://www.sfu.ca/~ssurjano/optimization.html
+                    Example usage:
                    >>> ContinuousFunctions.langermann([2, 3])
                    -5.1621259
             """
@@ -170,7 +170,7 @@ class NonconvexFunctions:
 
                    Returns:
                    - float: The Shubert function value at the point (x, y).
-
+                   Source: https://www.sfu.ca/~ssurjano/optimization.html
                    Example usage:
                    >>> ContinuousFunctions.shubert([-7.0835, 4.8580])
                    -186.7309
@@ -193,7 +193,7 @@ class NonconvexFunctions:
 
                     Returns:
                     - float: The Drop-Wave function value at the point (x, y).
-
+                    Source: https://www.sfu.ca/~ssurjano/optimization.html
                     Example usage:
                     >>> ContinuousFunctions.dropwave([0, 0])
                     -1
@@ -212,7 +212,7 @@ class NonconvexFunctions:
 
                     Returns:
                     - float: The Beale function value at the point (x, y).
-
+                    Source: https://www.sfu.ca/~ssurjano/optimization.html
                     Example usage:
                     >>> ContinuousFunctions.beale(3, 0.5)
                     0
@@ -231,7 +231,7 @@ class NonconvexFunctions:
 
               Returns:
               - float: The McCormick function value at the point (x, y).
-
+              Source: https://www.sfu.ca/~ssurjano/optimization.html
               Example usage:
               >>> ContinuousFunctions.mcCormick(-0.54719, -1.54719)
               -1.9133
@@ -249,7 +249,7 @@ class NonconvexFunctions:
 
                 Returns:
                 - float: The Eggholder function value at the point (x, y).
-
+                Source: https://www.sfu.ca/~ssurjano/optimization.html
                 Example usage:
                 >>> ContinuousFunctions.eggholder([512, 404.2319])
                 -959.6407
@@ -265,14 +265,18 @@ class NonconvexFunctions:
         @staticmethod
         def step_fun(xvals):
             """
-                The Step function is a simple, piecewise function that introduces discontinuities by flooring the absolute value of each input component. It is used as a benchmark for optimization algorithms, especially for testing their ability to handle discontinuous landscapes.
+                The Step function is a simple, piecewise function that introduces discontinuities by flooring the absolute value of each input component.
+                It is used as a benchmark for optimization algorithms, especially for testing their ability to handle discontinuous landscapes.
 
                 Parameters:
                 - xvals (list[float]): A list of float values representing the coordinates of a point in n-dimensional space. Each coordinate should be within the range of [-100, 100].
 
                 Returns:
                 - float: The sum of the floored absolute values of the input components, representing the Step function's value at the point defined by `xvals1`. The function has a global minimum value of 0 at the origin (0, ..., 0) and a secondary minimum value of 1.
-
+                Source: M. Jamil and X. S. Yang, “A literature survey of benchmark functions for global
+                        optimisation problems,” International Journal of Mathematical Modelling and
+                        Numerical Optimisation, vol. 4, no. 2, p. 150, 2013,
+                        doi:10.1504/ijmmno.2013.055204
                 Example usage:
                 >>> step_fun([0, 0.99, -0.99])  # Close to the global minimum
                 0
@@ -280,55 +284,16 @@ class NonconvexFunctions:
                 3
             """
             fun_val=0;
-            for i in xvals:
-                fun_val += (np.floor(abs(i)))
+            for x in xvals:
+                fun_val += (np.floor(abs(x)))
             return fun_val
-
-        @staticmethod
-        def expanded_scaffer_fun(xvals):
-            """
-               The Non-Continuous Expanded Scaffer's F6 Function is a modified version of the Scaffer's F6 function used in the CEC 2005 benchmark suite for optimization algorithms. It introduces non-continuities by rounding input values to the nearest half-integer if their absolute value is at least 0.5, making the landscape more challenging.
-
-               Parameters:
-               - xvals (list[float]): A list of float values representing the coordinates of a point in n-dimensional space. The rounding process before the function evaluation introduces non-continuities.
-
-               Returns:
-               - float: The value of the Non-Continuous Expanded Scaffer's F6 function at the point defined by `xvals`. The function has a global minimum value of 0 and a secondary minimum value of approximately 0.0441.
-
-               Notes:
-               - The function is particularly challenging for optimization algorithms due to the introduced non-continuities and the complex landscape created by the Scaffer's F6 function itself.
-
-               Example usage:
-               >>> expanded_scaffer_fun([0, 0])  # Global minimum
-               0
-               >>> expanded_scaffer_fun([0.1, 0.5])  # Example input with rounding
-            """
-            def scaffer_fun(x1, x2):
-                return 0.5 + (np.sin(np.sqrt(x1 ** 2 + x2 ** 2)) ** 2 - 0.5) / (
-                        1 + 0.001 * (x1 ** 2 + x2 ** 2)) ** 2
-
-            # rounding xvals as per the function requirement
-            for i in range(0, len(xvals)):
-                if abs(xvals[i]) >= 0.5:
-                    xvals[i] = round(2 * xvals[i]) / 2
-
-            '''
-             below line is calculating scaffer_fun(xvals[d] and xvals[1]) d is the dimension
-            '''
-            result = scaffer_fun(xvals[-1], xvals[0])
-            for i in range(0, len(xvals) - 1):
-                result += scaffer_fun(xvals[i], xvals[i + 1])
-            return result
-
-        @staticmethod
-        def continous_scaffer_fun(xvals):  # Defines the function
-            return 0.5 + (((np.sin((xvals[0] ** 2 + xvals[1] ** 2) ** 2) ** 2) - 0.5)
-                          / ((1 + 0.001 * (xvals[0] ** 2 + xvals[1] ** 2)) ** 2))
 
         @staticmethod
         def rastrigin(xvals):
             """
-                The non-continuous Rastrigin function is a modified version of the classic Rastrigin function, designed to test optimization algorithms on non-continuous landscapes. This version introduces discontinuities by rounding input values to the nearest half-integer if their absolute value is greater than or equal to 0.5. The Rastrigin function is known for its large number of local minima, making it a challenging benchmark for optimization algorithms.
+                The non-continuous Rastrigin function is a modified version of the classic Rastrigin function, designed to test optimization algorithms on non-continuous landscapes.
+                This version introduces discontinuities by rounding input values to the nearest half-integer if their absolute value is greater than or equal to 0.5.
+
 
                 Parameters:
                 - xvals (list[float]): A list of float values representing the coordinates of a point in n-dimensional space. Each coordinate should be within the range of [-5.12, 5.12].
@@ -338,7 +303,7 @@ class NonconvexFunctions:
 
                 Notes:
                 - The rounding introduces discontinuities into the landscape, making the optimization problem more challenging by preventing straightforward gradient-based approaches and requiring more sophisticated global optimization strategies.
-                - The function is particularly useful for evaluating the robustness and adaptability of optimization algorithms to discontinuities and non-linear landscapes.
+
                 - Source: https://www.researchgate.net/publication/347268116_Weighted_Fuzzy_Production_Rule_Extraction_Using_Modified_Harmony_Search_Algorithm_and_BP_Neural_Network_Framework
                 Example usage:
                 >>> rastrigin([0, 0, 0])  # Global minimum
@@ -356,7 +321,9 @@ class NonconvexFunctions:
         @staticmethod
         def xin_she_yang_n2(xvals):
             """
-                The Xin-She Yang N. 2 function is a benchmark problem for testing optimization algorithms. This function is part of a family of functions proposed by Xin-She Yang which are used to simulate the complex, multi-modal landscapes typical of real-world optimization problems. The function is characterized by its oscillatory behavior and multiple local minima.
+                The Xin-She Yang N. 2 function is a benchmark problem for testing optimization algorithms.
+                This function is part of a family of functions proposed by Xin-She Yang which are used to simulate the complex, multi-modal landscapes typical of real-world optimization problems.
+                The function is characterized by its oscillatory behavior and multiple local minima.
 
                 Parameters:
                 - xvals (list[float]): A list of float values representing the coordinates of a point in n-dimensional space. Each coordinate xi should be within the range of [-2π, 2π], where i ranges from 1 to the dimensionality of the input vector (d).
@@ -366,7 +333,7 @@ class NonconvexFunctions:
 
                 Notes:
                 - The function combines an absolute value term with an exponential term dependent on the sine of the squared components, creating a challenging landscape for optimization algorithms due to its oscillatory nature and multiple local minima.
-                - It is particularly useful for evaluating the exploration and exploitation capabilities of optimization algorithms in multi-modal landscapes.
+
                 - Source: https://towardsdatascience.com/optimization-eye-pleasure-78-benchmark-test-functions-for-single-objective-optimization-92e7ed1d1f12
 
                 Example usage:
@@ -387,7 +354,7 @@ class NonconvexFunctions:
         @staticmethod
         def rosenbrock(xvals):
             """
-                This modified version of the Rosenbrock function introduces non-continuity by applying conditional modifications based on the sine of twice the absolute value of each input component. It's designed to test optimization algorithms in handling non-continuous optimization landscapes.
+                This modified version of the Rosenbrock function introduces non-continuity by applying conditional modifications based on the sine of twice the absolute value of each input component.
 
                 The function iterates over pairs of input values, applying different conditional modifications to the classic Rosenbrock formula based on the sine condition, thereby creating a non-continuous landscape with varying difficulty levels.
 
@@ -399,7 +366,6 @@ class NonconvexFunctions:
 
                 Notes:
                 - The function's landscape is influenced by the sine of twice the absolute value of the input components, introducing non-linearity and conditional scaling.
-                - This version of the Rosenbrock function is useful for testing how well optimization algorithms can navigate non-continuous and complex landscapes.
                 - Source: https://repository.up.ac.za/bitstream/handle/2263/39764/Wilke_Gradient_2013.pdf;sequence=1
                 Example usage:
                 >>> rosenbrock([0, 0, 0, 0])  # Global minimum
@@ -430,9 +396,11 @@ class NonconvexFunctions:
         @staticmethod
         def quadric(xvals):
             """
-                The Quadric function is designed to test optimization algorithms by introducing a condition-dependent scaling factor based on the sine of eight times the absolute value of each element in the input vector. This function is particularly useful for evaluating an algorithm's ability to navigate an optimization landscape with variable scaling and conditional modifications.
+                The Quadric function is designed to test optimization algorithms by introducing a condition-dependent scaling factor based on the sine of eight times the absolute value of each element in the input vector.
 
-                The function iteratively calculates the sum of the squared values of all elements up to the current element, with a scaling factor that changes based on a sine condition. This creates a complex landscape with a global minimum and a notable secondary minimum.
+
+                The function iteratively calculates the sum of the squared values of all elements up to the current element, with a scaling factor that changes based on a sine condition.
+                This creates a complex landscape with a global minimum and a notable secondary minimum.
 
                 Parameters:
                 - xvals (list[float]): A list of float values representing the coordinates of a point in n-dimensional space. The valid range for each value is -1 <= xval <= 1.
@@ -442,7 +410,6 @@ class NonconvexFunctions:
 
                 Notes:
                 - The Quadric function's landscape is influenced by the sine of eight times the absolute value of the input components, which introduces non-linearity and conditional scaling.
-                - This function is useful for testing the robustness and adaptability of optimization algorithms to variable scaling and non-linear modifications.
                 - Source:https://repository.up.ac.za/bitstream/handle/2263/39764/Wilke_Gradient_2013.pdf;sequence=1
                          https://link.springer.com/article/10.1007/s11081-011-9178-7
                 Example usage:
@@ -468,7 +435,8 @@ class NonconvexFunctions:
         @staticmethod
         def ellipsoid(xvals):
             """
-                The Ellipsoid function is a type of scalable test function for optimization algorithms, characterized by its ellipsoidal contours. It is particularly used to test algorithms on their ability to handle problems with a large condition number and variable scaling.
+                The Ellipsoid function is a type of scalable test function for optimization algorithms, characterized by its ellipsoidal contours.
+                It is particularly used to test algorithms on their ability to handle problems with a large condition number and variable scaling.
 
                 The function's value is modified based on the sum of the input vector's components, introducing a condition that affects the scaling of the function's output.
 
@@ -480,7 +448,7 @@ class NonconvexFunctions:
 
                 Notes:
                 - The function scales the contribution of each dimension differently, which can make optimization more challenging as the number of dimensions increases.
-                - The function includes a conditional modification based on the sine of twice the sum of the input vector, introducing non-linearity and making the optimization landscape more complex.
+
                 -Source: https://repository.up.ac.za/bitstream/handle/2263/39764/Wilke_Gradient_2013.pdf;sequence=1
                          https://link.springer.com/article/10.1007/s11081-011-9178-7
                 Example usage:
