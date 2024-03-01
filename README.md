@@ -5,7 +5,8 @@
 # Installation
 - You can install the Non-Convex Optimization Library directly from PyPI:
 
-    - **pip install nonconvex_optimizationlib**
+    - **pip install nonconvexoptimzationfunclib**
+    - **https://pypi.org/project/nonconvexoptimzationfunclib/**
 
 - Note: Ensure you have Python and pip already installed on your system.
     
