@@ -66,6 +66,7 @@
 
 # Contributing
 * Contributions to the Non-Convex Optimization Library are welcome! please contact on satyam101905@gmail.com
+* Create fork of the repository and submit a pull request. We will review the changes and enhancements and then we will live the changes. Thank you
  
 #Why we designed this package? 
 * During my MS thesis(CSU Fresno) in metaheuristics algorithm design and optimization, I searched for several complex non-convex testbeds to test the newly designed algorithm.
@@ -75,3 +76,5 @@
     
 * ThankYou to Vasileios Lymperakis (author Buggy Pinball-a novel single point metaheuristic algorithm) for doing an amazing work in Buggy-Pinball which I was able to extended and explored further.
 * Thank you to Dr. Thanos{CSU Fresno, Computer Science} my advisor who guided me.
+
+# Thank you for reading :)
