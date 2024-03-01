@@ -14,7 +14,9 @@ setup(
     ],
     classifiers=[
         'Development Status :: 1-Alpha',
-        'Intended Audience :: Researchers, Developers, Students',
+        'Intended Audience :: Researchers',
+        'Intended Audience :: Developers',
+        'Intended Audience :: Students',
         'Topic :: Software Development :: Libraries',
         'Programming Language :: Python :: 3',
         "Operating System :: Unix",
